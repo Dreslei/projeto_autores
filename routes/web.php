@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AutorController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +29,20 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::resource('autores', AutorController::class);
+
+
+
+// Route::get('/autores/create', [AutorController::class, 'create'])->name('autores.create');
+
+// GET /autores: Listagem de autores (index)
+// GET /autores/create: Formulário para criar um novo autor (create)
+// POST /autores: Salvar um novo autor no banco de dados (store)
+// GET /autores/{id}: Exibir detalhes de um autor específico (show)
+// GET /autores/{id}/edit: Formulário para editar um autor (edit)
+// PUT/PATCH /autores/{id}: Atualizar os dados de um autor no banco de dados (update)
+// DELETE /autores/{id}: Excluir um autor do banco de dados (destroy)
+
 
 require __DIR__.'/auth.php';
