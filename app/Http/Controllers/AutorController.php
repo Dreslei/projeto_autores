@@ -11,7 +11,9 @@ class AutorController extends Controller
     public function index()
     {
         // Obtém todos os autores do banco de dados usando o model 'Autor'
-        $autores = Autor::all();
+        // $autores = Autor::all();
+
+        $autores = Autor::paginate(10);
         // Retorna a view 'autores.index' e passa os autores como um parâmetro
         return view('autores.index', compact('autores'));
         // compact -> Cria um array associativo.
