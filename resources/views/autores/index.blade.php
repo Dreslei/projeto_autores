@@ -34,6 +34,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $autores->links() }}
     </div>
 </x-app-layout>
 
