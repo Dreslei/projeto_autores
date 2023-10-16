@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AutorController;
-
+use App\Http\Controllers\GeneroController;
+use App\Http\Controllers\LivroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,14 +25,23 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Route::get('/autores', function () {
+//     return view('autores');
+// })->middleware(['auth', 'verified'])->name('autores');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+
 Route::resource('autores', AutorController::class);
 
+Route::resource('generos', GeneroController::class);
+
+Route::resource('livros', LivroController::class);
 
 
 // Route::get('/autores/create', [AutorController::class, 'create'])->name('autores.create');
