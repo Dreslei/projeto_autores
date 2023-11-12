@@ -12,7 +12,7 @@ class LivroController extends Controller
 {
     public function index()
     {
-        $livros = Livro::all();
+        $livros = Livro::paginate(10);
         return view('livros.index', compact('livros'));
     }
 

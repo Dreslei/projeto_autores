@@ -34,5 +34,6 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $livros->links() }}
     </div>
 </x-app-layout>
