@@ -61,8 +61,6 @@
     border-color: #d43f3a;
 }
 
-
-/* autores.css */
 .author-details-layout {
     background-color: white;
     display: flex;
@@ -96,3 +94,8 @@
 .author-details-layout a.btn {
     margin-top: 15px;
 }
+
+h1{
+    color: white;
+}
+
