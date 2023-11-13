@@ -8,15 +8,27 @@ use App\Models\Autor;
 class AutorController extends Controller
 {
     // Método para exibir a lista de autores
-    public function index()
-    {
-        // Obtém todos os autores do banco de dados usando o model 'Autor'
-        // $autores = Autor::all();
+    // public function index()
+    // {
+    //     // Obtém todos os autores do banco de dados usando o model 'Autor'
+    //     // $autores = Autor::all();
 
-        $autores = Autor::paginate(10);
-        // Retorna a view 'autores.index' e passa os autores como um parâmetro
+    //     $autores = Autor::paginate(10);
+    //     // Retorna a view 'autores.index' e passa os autores como um parâmetro
+    //     return view('autores.index', compact('autores'));
+    //     // compact -> Cria um array associativo.
+
+
+    // }
+
+    public function index(Request $request) // metódo de pesquisa
+    {
+        $search = $request->input('search');
+        $autores = Autor::where('nome', 'like', '%'.$search.'%')
+                         ->orWhere('nacionalidade', 'like', '%'.$search.'%')
+                         ->paginate(10);
+
         return view('autores.index', compact('autores'));
-        // compact -> Cria um array associativo.
     }
 
     // Método para exibir o formulário de criação de autor
@@ -38,7 +50,7 @@ class AutorController extends Controller
         // Salva o autor no banco de dados
         $autor->save();
         // Redireciona para a rota 'autores.index' após salvar
-        return redirect()->route('autores.create');
+        return redirect()->route('autores.index')->with('success', 'Autor criado com sucesso!');
     }
 
     // Método para exibir os detalhes de um autor específico
@@ -71,7 +83,7 @@ class AutorController extends Controller
         // Salva as alterações no autor
         $autor->save();
         // Redireciona para a rota 'autores.index' após salvar
-        return redirect()->route('autores.index');
+        return redirect()->route('autores.index')->with('success', 'Autor criado com sucesso!');
     }
 
     // Método para excluir um autor do banco de dados
@@ -82,6 +94,6 @@ class AutorController extends Controller
         // Exclui o autor do banco de dados
         $autor->delete();
         // Redireciona para a rota 'autores.index' após excluir
-        return redirect()->route('autores.index');
+        return redirect()->route('autores.index')->with('success', 'Autor Excluido com sucesso!');
     }
 }

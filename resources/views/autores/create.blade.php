@@ -8,6 +8,12 @@
             {{ __('Criar Autores') }}
         </h2>
     </x-slot>
+    @if(session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+        <strong class="font-bold">Sucesso!</strong>
+        <span class="block sm:inline">{{ session('success') }}</div>
+        </div>
+    @endif
     <body>
         <div class="container">
             <form action="{{ route('autores.store') }}" method="POST">
