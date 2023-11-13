@@ -2,10 +2,14 @@
     <head>
         <link rel="stylesheet" href="{{ asset('css/autores/index.css') }}">
     </head>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-white leading-tight">
+            {{ __('Generos') }}
+        </h2>
+    </x-slot>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Gêneros</h1>
                 <a href="{{ route('generos.create') }}" class="btn btn-primary">Adicionar Gênero</a>
                 <table class="table">
                     <thead>

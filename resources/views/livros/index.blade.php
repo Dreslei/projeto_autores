@@ -25,7 +25,7 @@
                         <td>{{ $livro->id }}</td>
                         <td>{{ $livro->titulo }}</td>
                         <td>{{ $livro->autor->nome }}</td>
-                        <td>{{ $livro->data_publicacao }}</td>
+                        <td>{{ (new DateTime($livro->data_publicacao))->format('d/m/Y') }}</td>
                         <td>
                             <a href="{{ route('livros.show', $livro->id) }}" class="btn btn-info">Ver</a>
                             <a href="{{ route('livros.edit', $livro->id) }}" class="btn btn-warning">Editar</a>

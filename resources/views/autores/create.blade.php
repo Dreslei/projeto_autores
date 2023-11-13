@@ -1,13 +1,15 @@
 <x-app-layout>
     <head>
         <link rel="stylesheet" href="{{ asset('css/autores/create.css') }}">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Novo Autor</title>
     </head>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-white leading-tight">
+            {{ __('Criar Autores') }}
+        </h2>
+    </x-slot>
     <body>
         <div class="container">
-            <h1>Novo Autor</h1>
             <form action="{{ route('autores.store') }}" method="POST">
                 <!-- Token CSRF para proteção contra ataques CSRF -->
                 @csrf

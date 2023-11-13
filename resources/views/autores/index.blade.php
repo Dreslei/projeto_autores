@@ -1,8 +1,11 @@
 <x-app-layout>
     <link rel="stylesheet" href="{{ asset('css/autores/index.css') }}">
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-white leading-tight">
+            {{ __('Lista Autores') }}
+        </h2>
+    </x-slot>
     <div class="container">
-        <h1>Lista de Autores</h1>
-        <br>
         <a href="{{ route('autores.create') }}" class="btn btn-primary">Novo Autor</a>
         <table class="table">
             <thead>

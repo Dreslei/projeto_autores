@@ -1,6 +1,10 @@
 <x-app-layout>
+<x-slot name="header">
+    <h2 class="font-semibold text-xl text-white leading-tight">
+        {{ __('Adicionar Generos') }}
+    </h2>
+</x-slot>
 <div class="container">
-    <h2>Adicionar Gênero</h2>
     <form action="{{ route('generos.store') }}" method="POST">
         @csrf
         <div class="form-group">
