@@ -26,6 +26,11 @@ class LivroController extends Controller
 
     public function store(Request $request)
     {
+        $messages = [
+            'titulo.required' => 'É necessário preencher o campo título.',
+            'resumo.required'  => 'É necessário preencher o campo resumo.',
+        ];
+
         $request->validate([
             'titulo' => 'required|string|max:255',
             'resumo' => 'required',
@@ -33,7 +38,7 @@ class LivroController extends Controller
             'genero_id' => 'required|exists:generos,id',
             'data_publicacao' => 'nullable|date',
             'ISBN' => 'nullable|string|max:13'
-        ]);
+        ],$messages);
 
         Livro::create($request->all());
 

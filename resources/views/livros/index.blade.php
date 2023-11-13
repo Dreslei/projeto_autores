@@ -1,20 +1,12 @@
 <x-app-layout>
+    <link rel="stylesheet" href="{{ asset('css/livros/livros.css') }}">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
             Livros
         </h2>
     </x-slot>
-    @if(session('success'))
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-        <strong class="font-bold">Sucesso!</strong>
-        <span class="block sm:inline">{{ session('success') }}</span>
-        </div>
-    @endif
-
-    <link rel="stylesheet" href="{{ asset('css/livros/livros.css') }}">
 
     <div class="container-livro">
-
         <a href="{{ route('livros.create') }}" class="btn btn-primary">Adicionar Livro</a>
         <table class="table">
             <thead>

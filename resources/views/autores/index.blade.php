@@ -5,13 +5,6 @@
             {{ __('Lista Autores') }}
         </h2>
     </x-slot>
-    @if(session('success'))
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-        <strong class="font-bold">Sucesso!</strong>
-        <span class="block sm:inline">{{ session('success') }}</span>
-        </div>
-    @endif
-
     <div class="container">
         <form action="{{ route('autores.index') }}" method="GET" class="search-form">
             <div class="search-container">
@@ -50,7 +43,9 @@
                 @endforeach
             </tbody>
         </table>
+        <br>
         {{ $autores->links() }}
+        <br>
     </div>
 </x-app-layout>
 
