@@ -61,8 +61,6 @@
     border-color: #d43f3a;
 }
 
-
-/* autores.css */
 .author-details-layout {
     background-color: white;
     display: flex;
@@ -96,3 +94,37 @@
 .author-details-layout a.btn {
     margin-top: 15px;
 }
+
+h1{
+    color: white;
+}
+
+
+.search-button {
+    background-color: #6f42c1;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.search-button:hover {
+    background-color: #5936a2;
+}
+
+.search-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+}
+

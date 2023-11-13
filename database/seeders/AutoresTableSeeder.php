@@ -4,24 +4,16 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Autor;
+use Illuminate\Support\Str;
 use Faker\Factory as Faker;
 
 class AutoresTableSeeder extends Seeder
 {
-    public function run()
+
+    public function run(): void
     {
-        $faker = Faker::create();
-
-        $numeroDeAutores = 60;
-
-        for ($i = 0; $i < $numeroDeAutores; $i++) {
-            \DB::table('autores')->insert([
-                'nome' => $faker->name,
-                'data_nascimento' => $faker->date,
-                'nacionalidade' => $faker->country,
-            ]);
-        }
+       Autor::factory(10)->create();
     }
 }
-// Comando para rodar as Seeders
-//php artisan db:seed --class=AutoresTableSeeder
+

@@ -1,52 +1,21 @@
 <x-app-layout>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ asset('css/autores/create.css') }}">
         <title>Novo Autor</title>
-        <style>
-            body {
-                background-color: #fff; /* Fundo branco */
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-            }
-            .container {
-                max-width: 600px;
-                margin: 0 auto;
-                padding: 20px;
-            }
-            .form-group {
-                margin-bottom: 15px;
-            }
-            label {
-                display: block;
-                font-weight: bold;
-            }
-            input[type="text"],
-            input[type="date"] {
-                width: 100%;
-                padding: 8px;
-                border: 1px solid #3a0d0d;
-                border-radius: 4px;
-            }
-            .btn {
-                padding: 10px 15px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                color: #fff;
-            }
-            .btn-success {
-                background-color: #28a745;
-            }
-            .btn-secondary {
-                background-color: #6c757d;
-            }
-        </style>
     </head>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-white leading-tight">
+            {{ __('Criar Autores') }}
+        </h2>
+    </x-slot>
+    @if(session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+        <strong class="font-bold">Sucesso!</strong>
+        <span class="block sm:inline">{{ session('success') }}</div>
+        </div>
+    @endif
     <body>
         <div class="container">
-            <h1>Novo Autor</h1>
             <form action="{{ route('autores.store') }}" method="POST">
                 <!-- Token CSRF para proteção contra ataques CSRF -->
                 @csrf

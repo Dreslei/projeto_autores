@@ -1,8 +1,17 @@
 <x-app-layout>
     <link rel="stylesheet" href="{{ asset('css/autores/index.css') }}">
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-white leading-tight">
+            {{ __('Lista Autores') }}
+        </h2>
+    </x-slot>
     <div class="container">
-        {{-- <h1>Lista de Autores</h1> --}}
-        <br>
+        <form action="{{ route('autores.index') }}" method="GET" class="search-form">
+            <div class="search-container">
+                <input type="text" name="search" placeholder="Pesquisar autores..." value="{{ request()->query('search') }}" class="search-input">
+                <button type="submit" class="search-button">Pesquisar</button>
+            </div>
+        </form>
         <a href="{{ route('autores.create') }}" class="btn btn-primary">Novo Autor</a>
         <table class="table">
             <thead>
@@ -34,7 +43,9 @@
                 @endforeach
             </tbody>
         </table>
+        <br>
         {{ $autores->links() }}
+        <br>
     </div>
 </x-app-layout>
 
