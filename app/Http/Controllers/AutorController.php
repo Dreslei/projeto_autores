@@ -28,7 +28,8 @@ class AutorController extends Controller
                          ->orWhere('nacionalidade', 'like', '%'.$search.'%')
                          ->paginate(10);
 
-        return view('autores.index', compact('autores'));
+        return view('asasa.index', compact('autores'));
+
     }
 
     // Método para exibir o formulário de criação de autor
@@ -83,7 +84,7 @@ class AutorController extends Controller
         // Salva as alterações no autor
         $autor->save();
         // Redireciona para a rota 'autores.index' após salvar
-        return redirect()->route('autores.index')->with('success', 'Autor criado com sucesso!');
+        return redirect()->route('autores.index')->with('success', 'Autor Atualizado!');
     }
 
     // Método para excluir um autor do banco de dados
