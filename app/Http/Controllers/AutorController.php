@@ -28,7 +28,8 @@ class AutorController extends Controller
                          ->orWhere('nacionalidade', 'like', '%'.$search.'%')
                          ->paginate(10);
 
-        return view('autores.index', compact('autores'));
+        return view('asasa.index', compact('autores'));
+
     }
 
     // Método para exibir o formulário de criação de autor
