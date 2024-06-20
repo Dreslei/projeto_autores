@@ -1,5 +1,9 @@
 <x-app-layout>
     <link rel="stylesheet" href="{{ asset('css/autores/index.css') }}">
+
+    <script src="{{ asset('js/autores.js') }}"></script>
+
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
             {{ __('Lista Autores') }}
@@ -33,10 +37,10 @@
                         <td>
                             <a href="{{ route('autores.show', $autor->id) }}" class="btn btn-info">Detalhes</a>
                             <a href="{{ route('autores.edit', $autor->id) }}" class="btn btn-warning">Editar</a>
-                            <form action="{{ route('autores.destroy', $autor->id) }}" method="POST" style="display: inline;">
+                            <form action="{{ route('autores.destroy', $autor->id) }}" id="deletarForm_{{ $autor->id }}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Excluir</button>
+                                <button type="button" class="btn btn-danger" onclick="deletarAutor({{ $autor->id }}, '{{ $autor->nome }}')">Excluir</button>
                             </form>
                         </td>
                     </tr>
